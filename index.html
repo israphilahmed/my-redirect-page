@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    function redirect() {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(ua)) {
+        // Redirect to YouTube app on Android
+        window.location.href = 'intent://www.youtube.com/@susneko?sub_confirmation=1#Intent;package=com.google.android.youtube;scheme=https;end';
+      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        // Redirect to YouTube app on iOS
+        window.location.href = 'youtube://www.youtube.com/@susneko?sub_confirmation=1';
+      } else {
+        // Redirect to YouTube in browser for desktop or other devices
+        window.location.href = 'https://www.youtube.com/@susneko?sub_confirmation=1';
+      }
+    }
+    window.onload = redirect;
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
